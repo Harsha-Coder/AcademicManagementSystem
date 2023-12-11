@@ -1,0 +1,10 @@
+{% extends 'demoapp/Adminbase.html' %}
+
+{% block content %}
+  <h2>Update Faculty</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update Faculty</button>
+  </form>
+{% endblock %}

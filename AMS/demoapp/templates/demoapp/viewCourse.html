@@ -1,0 +1,29 @@
+{% extends 'demoapp/Adminbase.html' %}
+
+{% block content %}
+  <h2 align="center">View Courses</h2>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Course Code</th>
+        <th>Course Name</th>
+        <th>Department</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for course in courses %}
+        <tr>
+          <td>{{ course.CourseCode }}</td>
+          <td>{{ course.CourseName }}</td>
+          <td>{{ course.Course_Department }}</td>
+          <td>
+            <a href="{% url 'update_course' course.CourseCode %}">Update</a>
+            <a href="{% url 'delete_course' course.CourseCode %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <h4 align="center">The Total Courses = {{count}}</h4>
+{% endblock %}

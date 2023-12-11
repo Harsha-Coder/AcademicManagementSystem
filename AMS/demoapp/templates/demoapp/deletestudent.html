@@ -1,0 +1,12 @@
+{% extends 'demoapp/Adminbase.html' %}
+
+{% block content %}
+  <h2>Delete Student</h2>
+  <p>Are you sure you want to delete the student {{ student.StudentName }}?</p>
+  
+  <form method="post" action="{% url 'delete_student' student.StudentID %}">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+    <a href="{% url 'viewstudent' %}">Cancel</a>
+  </form>
+{% endblock %}

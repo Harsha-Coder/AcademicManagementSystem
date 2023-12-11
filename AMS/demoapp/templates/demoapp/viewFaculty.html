@@ -1,0 +1,31 @@
+{% extends 'demoapp/Adminbase.html' %}
+
+{% block content %}
+  <h2 align="center">View Faculty</h2>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Faculty ID</th>
+        <th>Faculty Name</th>
+        <th>Mobile Number</th>
+        <th>Department</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for faculty in faculties %}
+        <tr>
+          <td>{{ faculty.FacultyID }}</td>
+          <td>{{ faculty.FacultyName }}</td>
+          <td>{{ faculty.Mobile_Number }}</td>
+          <td>{{ faculty.Faculty_department }}</td>
+          <td>
+            <a href="{% url 'update_faculty' faculty.FacultyID %}">Update</a>
+            <a href="{% url 'delete_faculty' faculty.FacultyID %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <h4 align="center">The Total Faculty = {{count}}</h4>
+{% endblock %}

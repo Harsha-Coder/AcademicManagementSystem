@@ -1,0 +1,31 @@
+{% extends 'demoapp/Adminbase.html' %}
+
+{% block content %}
+  <h2 align="center">View Students</h2>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Student ID</th>
+        <th>Student Name</th>
+        <th>Mobile Number</th>
+        <th>Department</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for student in students %}
+        <tr>
+          <td>{{ student.StudentID }}</td>
+          <td>{{ student.StudentName }}</td>
+          <td>{{ student.Mobile_Number }}</td>
+          <td>{{ student.Student_department }}</td>
+           <td>
+            <a href="{% url 'update_student' student.StudentID %}">Update</a>
+            <a href="{% url 'delete_student' student.StudentID %}">Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+<h4 align="center">The Total Students = {{count}}</h4>
+{% endblock %}

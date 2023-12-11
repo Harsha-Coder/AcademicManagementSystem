@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+    <title>Academic Management System</title>
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+<div class="navbar">
+    <a href="{% url 'Ahome' %}">Home</a>
+    <a href="{% url 'addCourse' %}">AddCourse</a>
+    <a href="{% url 'addStudent' %}">AddStudent</a>
+    <a href="{% url 'addFaculty' %}">AddFaculty</a>
+    <a href="{% url 'viewstudent' %}">ViewStudent</a>
+    <a href="{% url 'viewcourse' %}">ViewCourse</a>
+    <a href="{% url 'viewfaculty' %}">ViewFaculty</a>
+</div>
+{% block content %}
+<h1>This is a Admin Page</h1>
+{% endblock %}
+
+</body>
+</html>

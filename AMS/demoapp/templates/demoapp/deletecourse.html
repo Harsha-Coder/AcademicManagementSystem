@@ -1,0 +1,12 @@
+{% extends 'demoapp/Adminbase.html' %}
+
+{% block content %}
+  <h2>Delete Course</h2>
+  <p>Are you sure you want to delete the course {{ course.CourseName }}?</p>
+
+  <form method="post" action="{% url 'delete_course' course.CourseCode %}">
+    {% csrf_token %}
+    <button type="submit">Delete</button>
+    <a href="{% url 'viewcourse' %}">Cancel</a>
+  </form>
+{% endblock %}
